@@ -26,6 +26,7 @@ torchrun --nproc_per_node=4 \
   --batch-size 256 \
   --opt sgd \
   --lr 0.1 \
+  --momentum 0.9 \
   --lr-scheduler cosineannealinglr \
   --lr-min 0.00001 \
   --lr-warmup-method=linear \
@@ -41,7 +42,14 @@ Here are the pre-trained models:
 
 [Google Drive](https://drive.google.com/drive/folders/11Ial9MyZJWf4vmd39JKljzv4Ea-Pbr_1?usp=drive_link)
 
-* `evmlp_b_224_imagenet1k.pth`: Using the default configuration in `evmlp.py`, trained from scratch on ImageNet-1K.
+Models trained under the old configuration (deprecated):
+* <del>`evmlp_b_224_imagenet1k.pth`: Using the default configuration in `evmlp.py`, trained from scratch on ImageNet-1K.</del>
+
+Available models:
+
+* `evmlp_224_imagenet1k_ep300_73.5.pth`:  Using the default configuration in `evmlp.py`, trained from scratch on ImageNet-1K.
+
+* `evmlp_224_imagenet1k_ep300_distilled_75.4.pth`: Use EfficientNetV2-S(top-1 81.31%@224x224) as the teacher model for knowledge distillation.
 
 ## Video processing
 
