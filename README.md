@@ -1,5 +1,3 @@
-**Note:** This work is **not** related to event cameras.
-
 Code and Pretrained Models for: **[evMLP: An Efficient Event-Driven MLP Architecture for Vision](https://arxiv.org/abs/2507.01927)**
 
 This is a highly experimental implementation of evMLP. Training code, pre-trained models, and evaluation scripts will be updated in the near future.
@@ -47,9 +45,13 @@ Models trained under the old configuration (deprecated):
 
 Available models:
 
-* `evmlp_224_imagenet1k_ep300_73.5.pth`:  Using the default configuration in `evmlp.py`, trained from scratch on ImageNet-1K.
+| Model Name | Input Size |  MACs(G)  | Params(M) |Top1-Acc  |  Epochs  | Teacher Model |
+|------------|------------|------------|------------|------------|------------|------------|
+| evmlp_224_imagenet1k_ep300_73.5.pth | 224x224 | 1.0 | 38.4 | 73.5% | 300 | - |
+| evmlp_224_imagenet1k_ep300_distilled_75.4.pth | 224x224 | 1.0 | 38.4 | 75.4% | 300 |  EfficientNetV2-S* |
+| evmlp_224_imagenet1k_ep800_distilled_77.0.pth | 224x224 | 1.0 | 38.4 | 77.0% | 800 |  EfficientNetV2-S* |
 
-* `evmlp_224_imagenet1k_ep300_distilled_75.4.pth`: Use EfficientNetV2-S(top-1 81.31%@224x224) as the teacher model for knowledge distillation.
+\*  [EfficientNetV2-S](https://docs.pytorch.org/vision/stable/models/generated/torchvision.models.efficientnet_v2_s.html), top1 81.31%@224x224, top1 84.23%@384x384
 
 ## Video processing
 
